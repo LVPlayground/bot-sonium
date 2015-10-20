@@ -47,7 +47,6 @@ Configuration	:: getInstance () -> register   ($aConfiguration);
 NetworkManager	:: getInstance () -> Initialise ($aConfiguration ['Networks']);
 BotManager	:: getInstance () -> Initialise ($aConfiguration ['Bots']);
 Memory		:: Initialise  ();
-//ErrorExceptionHandler :: getInstance () -> Initialise ($aConfiguration ['ErrorHandling']);
 
 $g_bRun = true ;
 while ($g_bRun)
