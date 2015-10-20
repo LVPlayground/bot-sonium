@@ -16,7 +16,7 @@ $aConfiguration = [
     ],
     'Bots' => [
         [
-            'Nuwani' => 'Sonium',
+            'Nickname' => 'Sonium',
             'Username' => '',
             'Realname' => '',
 
