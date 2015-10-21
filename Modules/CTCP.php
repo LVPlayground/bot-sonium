@@ -10,7 +10,9 @@
  *         peter@lvp-media.com
  */
 
-class CTCP extends ModuleBase
+use Nuwani \ Bot;
+
+class CTCP extends Nuwani \ ModuleBase
 {
 	/**
 	 * Function: onCTCP

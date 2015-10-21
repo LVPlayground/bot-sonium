@@ -10,6 +10,8 @@
  *         peter@lvp-media.com
  */
 
+use Nuwani \ Bot;
+
 class Command implements Serializable, ArrayAccess
 {
 	/**
@@ -392,7 +394,7 @@ class Command implements Serializable, ArrayAccess
 	 * and bot-system to directly invoke the object variable.
 	 */
 	
-	public function __invoke ($pBot, $sDestination, $sChannel, $sNickname, $aParams, $sMessage)
+	public function __invoke (Bot $pBot, $sDestination, $sChannel, $sNickname, $aParams, $sMessage)
 	{
 		if (is_callable ($this -> m_pCachedCommand) && 
 		    $this -> checkNetwork($pBot ['Network']) &&

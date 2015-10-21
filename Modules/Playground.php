@@ -3,10 +3,12 @@
 // Use of this source code is governed by the MIT license, a copy of which can
 // be found in the LICENSE file.
 
+use Nuwani \ Bot;
+
 // The Playground module provides a number of convenience commands to help people on IRC. When
 // adding a new command to Sonium, please consider adding it here and checking it in rather than
 // using the ephemeral command system in the Command module, so we can version it.
-class Playground extends ModuleBase {
+class Playground extends Nuwani \ ModuleBase {
     private $m_commands;
 
     public function __construct() {
@@ -55,7 +57,7 @@ class Playground extends ModuleBase {
         $nickname = substr($arguments, 0, strpos($arguments, ' ') ?: strlen($arguments));
         $registrationDate = null;
 
-        $database = Database::getInstance();
+        $database = Nuwani\Database::getInstance();
 
         $statement = $database->prepare('SELECT registered FROM users WHERE nickname = ?');
         $statement->bind_param('s', $nickname);

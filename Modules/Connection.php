@@ -10,7 +10,9 @@
  *         peter@lvp-media.com
  */
 
-class Connection extends ModuleBase
+use Nuwani \ Bot;
+
+class Connection extends Nuwani \ ModuleBase
 {
 	/**
 	 * Function: __construct
@@ -86,7 +88,7 @@ class Connection extends ModuleBase
 			
 			case 'KILL':	// Killed by the server for whatever reason;
 			{
-				new Timer (function () use ($pBot) 
+				new Nuwani \ Timer (function () use ($pBot) 
 					{
 						$pBot ['Socket'] -> restart ();
 						$pBot -> connect ();
@@ -111,7 +113,7 @@ class Connection extends ModuleBase
 		if (isset ($pBot ['QuitMessage']))
 		{
 			$pBot -> send ('QUIT :' . $pBot ['QuitMessage']);
-			return ModuleManager :: FINISHED;
+			return Nuwani \ ModuleManager :: FINISHED;
 		}
 	}
 	

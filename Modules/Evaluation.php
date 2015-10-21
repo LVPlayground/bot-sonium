@@ -28,7 +28,9 @@
  * @see http://nuwani.googlecode.com
  */
 
-class Evaluation extends ModuleBase implements ISecurityProvider
+use Nuwani \ Bot;
+
+class Evaluation extends Nuwani \ ModuleBase implements Nuwani \ ISecurityProvider
 {
         /**
          * The property which contains an array of the people who will be
@@ -55,7 +57,7 @@ class Evaluation extends ModuleBase implements ISecurityProvider
         
         public function __construct ()
         {
-                $pConfiguration = Configuration :: getInstance ();
+                $pConfiguration = Nuwani \ Configuration :: getInstance ();
                 $aConfiguration = $pConfiguration -> get ('Owners');
                 
                 if (!count ($aConfiguration))
@@ -93,7 +95,7 @@ class Evaluation extends ModuleBase implements ISecurityProvider
         {
                 if (in_array ('ISecurityModule', class_implements ($pModule)))
                 {
-                        $pModule -> registerSecurityProvider ($this, ISecurityProvider :: BOT_OWNER);
+                        $pModule -> registerSecurityProvider ($this, Nuwani \ ISecurityProvider :: BOT_OWNER);
                 }
         }
         
@@ -368,7 +370,7 @@ class Evaluation extends ModuleBase implements ISecurityProvider
                 {
                         Nuwani \ Timer :: create (function () use ($pBot, $sDestination, $aOptions) 
                         {
-                                $pModules = ModuleManager :: getInstance ();
+                                $pModules = Nuwani \ ModuleManager :: getInstance ();
                                 if (isset ($pModules ['Evaluation']))
                                 {
                                         $pModules ['Evaluation'] -> doEvaluation ($pBot, $sDestination, $aOptions);
@@ -395,7 +397,7 @@ class Evaluation extends ModuleBase implements ISecurityProvider
         public function doEvaluation (Bot $pBot, $sDestination, $aOptions)
         {
                 ob_start ();
-                ErrorExceptionHandler :: $Source = $sDestination ;
+                Nuwani \ ErrorExceptionHandler :: $Source = $sDestination ;
                 
                 switch ($aOptions ['Type'])
                 {

@@ -55,6 +55,11 @@ $aConfiguration = [
     'MySQL' => $soniumDatabase,
     'BotVersion' => [
         'channel' => '#LVP.Management',
+
+        // GitHub update daemon supported by the BotVersion module. These values should match the
+        // configuration the GitHub webhook for your project.
+        'daemon_port' => 18205,
+        'daemon_secret' => $soniumDaemonSecret,
     ],
     'ErrorHandling' => ErrorExceptionHandler::ERROR_OUTPUT_ALL,
     'SleepTimer' => 40000,

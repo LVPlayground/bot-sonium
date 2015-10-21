@@ -10,9 +10,11 @@
  *         peter@lvp-media.com
  */
 
+use Nuwani \ Bot;
+
 require_once 'Modules/Commands/Command.php';
 
-class Commands extends ModuleBase implements ISecurityModule, ArrayAccess, Countable, IteratorAggregate
+class Commands extends Nuwani \ ModuleBase implements Nuwani \ ISecurityModule, ArrayAccess, Countable, IteratorAggregate
 {
 	/**
 	 * Property: m_aCommands

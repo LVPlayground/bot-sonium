@@ -21,7 +21,9 @@
  * @package Modules
  */
 
-class Notification extends ModuleBase
+use Nuwani \ Bot;
+
+class Notification extends Nuwani \ ModuleBase
 {
 	/**
          * Define the command name which should be used for triggering notifications. There are no

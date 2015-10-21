@@ -10,6 +10,8 @@
  *         peter@lvp-media.com
  */
 
+use Nuwani \ Bot;
+
 class LvpEchoStatistics
 {
 	/**
@@ -44,12 +46,12 @@ class LvpEchoStatistics
                 return preg_replace
                 (
                         '/(' .
-                        ModuleBase :: BOLD . '|' .
-                        ModuleBase :: COLOUR . '\d{0,2}(?:,\d{1,2}|)|' .
-                        ModuleBase :: CLEAR . '|' .
-                        ModuleBase :: INVERSE . '|' .
-                        ModuleBase :: ITALIC . '|' .
-                        ModuleBase :: UNDERLINE . ')/',
+                        Nuwani \ ModuleBase :: BOLD . '|' .
+                        Nuwani \ ModuleBase :: COLOUR . '\d{0,2}(?:,\d{1,2}|)|' .
+                        Nuwani \ ModuleBase :: CLEAR . '|' .
+                        Nuwani \ ModuleBase :: INVERSE . '|' .
+                        Nuwani \ ModuleBase :: ITALIC . '|' .
+                        Nuwani \ ModuleBase :: UNDERLINE . ')/',
                         '',
                         $sMessage
                 );
@@ -109,7 +111,7 @@ class LvpEchoStatistics
 				$nUserId = (int) $this -> m_aPlayers [$sNickname]['userid'];
 				$nIngame = (time() - $this -> m_aPlayers [$sNickname]['joined']);
 				
-				$pDatabase = Database :: getInstance ();
+				$pDatabase = Nuwani \ Database :: getInstance ();
 				$pDatabase -> query ('
 					INSERT INTO
 						samp_ingame
@@ -136,7 +138,7 @@ class LvpEchoStatistics
 	
 	public function checkRegistered ($sNickname)
 	{
-		$pDatabase = Database :: getInstance ();
+		$pDatabase = Nuwani \ Database :: getInstance ();
 		$pQuery    = $pDatabase -> query ('
 			SELECT
 				user_id

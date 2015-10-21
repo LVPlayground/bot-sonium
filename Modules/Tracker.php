@@ -14,7 +14,9 @@
  * @version 1.0
  */
 
-class Tracker extends ModuleBase
+use Nuwani \ Bot;
+
+class Tracker extends Nuwani \ ModuleBase
 {
         /**
          * An array containing the feeds we'll be controlling through this module. All
@@ -160,7 +162,7 @@ class Tracker extends ModuleBase
                 $sMessage = str_replace (array_keys ($aFormatTags), array_values ($aFormatTags), $aFeedInfo ['format']);
                 $sChannel = $aFeedInfo ['channel'];
                 
-                $pBot = BotManager :: getInstance () -> offsetGet ('channel:' . $sChannel);
+                $pBot = Nuwani \ BotManager :: getInstance () -> offsetGet ('channel:' . $sChannel);
                 if ($pBot !== false && count ($pBot) > 0)
                 {
                         if ($aFeedInfo ['hidden'] === true)

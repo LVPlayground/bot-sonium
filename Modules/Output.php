@@ -10,7 +10,9 @@
  *         peter@lvp-media.com
  */
 
-class Output extends ModuleBase
+use Nuwani \ Bot;
+
+class Output extends Nuwani \ ModuleBase
 {
 	/**
 	 * Function: onChannelJoin

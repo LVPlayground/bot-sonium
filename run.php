@@ -19,20 +19,8 @@ error_reporting (E_ALL);
 if (version_compare (PHP_VERSION, '5.3.0b1-dev') < 0)
 	die ("You need PHP 5.3 or higher to run Nuwani.\n");
 
-require 'Sources/Singleton.php';
-require 'Sources/ModuleBase.php';
-require 'Sources/Configuration.php';
-require 'Sources/BotManager.php';
-require 'Sources/Exception.php';
-require 'Sources/BotGroup.php';
-require 'Sources/Database.php';
-require 'Sources/Network.php';
-require 'Sources/Modules.php';
-require 'Sources/Memory.php';
-require 'Sources/Socket.php';
-require 'Sources/Timer.php';
-require 'Sources/Bot.php';
-require 'config.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/config.php';
 
 define ("NL",	"\n");
 define ("RNL",	"\r\n");
@@ -43,20 +31,20 @@ chdir (__DIR__);
 if ($_SERVER ['argc'] >= 2 && $_SERVER ['argv'][1] == 'restart')
 	sleep (1); // Give the other bot the time to disconnect
 
-Configuration	:: getInstance () -> register   ($aConfiguration);
-NetworkManager	:: getInstance () -> Initialise ($aConfiguration ['Networks']);
-BotManager	:: getInstance () -> Initialise ($aConfiguration ['Bots']);
-Memory		:: Initialise  ();
+Nuwani \ Configuration	:: getInstance () -> register   ($aConfiguration);
+Nuwani \ NetworkManager	:: getInstance () -> Initialise ($aConfiguration ['Networks']);
+Nuwani \ BotManager	:: getInstance () -> Initialise ($aConfiguration ['Bots']);
+Nuwani \ Memory		:: Initialise  ();
 
 $g_bRun = true ;
 while ($g_bRun)
 {
 	try
 	{
-		BotManager	:: getInstance () -> process ();
-		ModuleManager	:: getInstance () -> onTick ();
-		Timer 	   	:: process ();
-		Memory	   	:: process ();
+		Nuwani \ BotManager	:: getInstance () -> process ();
+		Nuwani \ ModuleManager	:: getInstance () -> onTick ();
+		Nuwani \ Timer 	   	:: process ();
+		Nuwani \ Memory	   	:: process ();
 		
 		if (count (BotManager :: getInstance ()) == 0)
 		{
@@ -67,7 +55,7 @@ while ($g_bRun)
 	}
 	catch (Exception $pException)
 	{
-		ErrorExceptionHandler :: getInstance () -> processException ($pException);
+		Nuwani \ ErrorExceptionHandler :: getInstance () -> processException ($pException);
 		@ ob_end_flush ();
 	}
 }

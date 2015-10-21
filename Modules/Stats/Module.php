@@ -12,7 +12,9 @@
 
 require_once 'lvp.echo.php';
 
-class Stats extends ModuleBase
+use Nuwani \ Bot;
+
+class Stats extends Nuwani\ModuleBase
 {
 	const	STATS_MANAGER_LVPECHO		= 0;
 	

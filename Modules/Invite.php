@@ -10,7 +10,9 @@
  *         peter@lvp-media.com
  */
 
-class Invite extends ModuleBase
+use Nuwani \ Bot;
+
+class Invite extends Nuwani \ ModuleBase
 {
 	/**
 	 * Function: onInvite
@@ -29,10 +31,10 @@ class Invite extends ModuleBase
 		if ($pBot ['Nickname'] != $sInvitee)
 			return false ;
 	
-		$pEvaluationModule = ModuleManager :: getInstance () -> offsetGet ('Evaluation');
+		$pEvaluationModule = Nuwani \ ModuleManager :: getInstance () -> offsetGet ('Evaluation');
 		if ($pEvaluationModule !== false)
 		{
-			if (!$pEvaluationModule -> checkSecurity ($pBot, ISecurityProvider :: BOT_OWNER))
+			if (!$pEvaluationModule -> checkSecurity ($pBot, Nuwani \ ISecurityProvider :: BOT_OWNER))
 				return false ;
 			
 			$pBot -> send ('JOIN ' . $sChannel);
