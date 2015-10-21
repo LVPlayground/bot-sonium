@@ -21,6 +21,7 @@ $directory = __DIR__;
 $commands = [
     'git fetch --all',
     'git reset --hard origin/master',
+    'composer update',
     'git rev-parse HEAD > VERSION'
 ];
 
