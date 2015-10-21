@@ -1,2 +1,4 @@
+vendor/
 VERSION
+composer.lock
 config.private.php

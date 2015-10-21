@@ -1,0 +1,21 @@
+{
+    "name": "LVPlayground/sonium",
+    "description": "Sonium IRC bot for Las Venturas Playground.",
+    "require": {
+        "php": ">=5.5",
+        "LVPlayground/nuwani": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Russell Krupke",
+            "email": "russell@sa-mp.nl"
+        }
+    ],
+    "repositories": [
+        {
+            "url": "https://github.com/LVPlayground/nuwani.git",
+            "type": "git"
+        }
+    ]
+}
