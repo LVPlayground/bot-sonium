@@ -46,7 +46,7 @@ while ($g_bRun)
 		Nuwani \ Timer 	   	:: process ();
 		Nuwani \ Memory	   	:: process ();
 		
-		if (count (BotManager :: getInstance ()) == 0)
+		if (count (Nuwani \ BotManager :: getInstance ()) == 0)
 		{
 			$g_bRun = false;
 		}

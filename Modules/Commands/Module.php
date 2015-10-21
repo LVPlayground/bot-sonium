@@ -299,7 +299,7 @@ class Commands extends Nuwani \ ModuleBase implements Nuwani \ ISecurityModule, 
 	 * as soon as it gets available. Will be called automatically.
 	 */
 	
-	public function registerSecurityProvider (ISecurityProvider $pProvider, $nLevel)
+	public function registerSecurityProvider (Nuwani\ISecurityProvider $pProvider, $nLevel)
 	{
 		$this -> m_aSecurityProviders [$nLevel] = $pProvider;
 	}
@@ -312,7 +312,7 @@ class Commands extends Nuwani \ ModuleBase implements Nuwani \ ISecurityModule, 
 	 * won't be able to use it anymore. Could be for any reason.
 	 */
 	
-	public function unregisterSecurityProvider (ISecurityProvider $pProvider)
+	public function unregisterSecurityProvider (Nuwani\ISecurityProvider $pProvider)
 	{
 		foreach ($this -> m_aSecurityProviders as $nLevel => $pInstance)
 		{

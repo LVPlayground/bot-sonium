@@ -61,7 +61,7 @@ $aConfiguration = [
         'daemon_port' => 18205,
         'daemon_secret' => $soniumDaemonSecret,
     ],
-    'ErrorHandling' => ErrorExceptionHandler::ERROR_OUTPUT_ALL,
+    'ErrorHandling' => Nuwani\ErrorExceptionHandler::ERROR_OUTPUT_ALL,
     'SleepTimer' => 40000,
 ];
 
