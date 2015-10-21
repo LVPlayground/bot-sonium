@@ -53,6 +53,9 @@ $aConfiguration = [
         // The private list of owners will be appended here.
     ],
     'MySQL' => $soniumDatabase,
+    'BotVersion' => [
+        'channel' => '#LVP.Management',
+    ],
     'ErrorHandling' => ErrorExceptionHandler::ERROR_OUTPUT_ALL,
     'SleepTimer' => 40000,
 ];

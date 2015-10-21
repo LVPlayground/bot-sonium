@@ -9,8 +9,7 @@ class BotVersion extends ModuleBase {
     // Number of milliseconds that should be between update checks for the bot.
     const UPDATE_FREQUENCY_MS = 60 * 1000;
 
-    // Channel to which announcements about available updates should be distributed.
-    const UPDATE_ANNOUNCEMENT_CHANNEL = '#LVP.Management';
+    private $m_announcementChannel;
 
     private $m_initialVersion;
     private $m_availableVersion;
@@ -20,6 +19,11 @@ class BotVersion extends ModuleBase {
     public function __construct() {
         $this->m_initialVersion = $this->determineCurrentVersion();
         $this->m_availableVersion = $this->m_initialVersion;
+
+        // Load and apply the configuration for this module from the main config file.
+        $configuration = Configuration::getInstance()->get('BotVersion');
+        if (array_key_exists('channel', $configuration))
+            $this->m_announcementChannel = $configuration['channel'];
 
         // Create a timer that checks for updates to the version file at a given frequency. This
         // timer will be destroyed again when this instance goes away.
@@ -46,9 +50,9 @@ class BotVersion extends ModuleBase {
         $message .= ModuleBase::COLOUR_PURPLE . substr($availableVersion, 0, 7);
         $message .= ModuleBase::COLOUR . '. Use !restart to update.';
 
-        $bot = BotManager::getInstance()->offsetGet('channel:' . self::UPDATE_ANNOUNCEMENT_CHANNEL);
+        $bot = BotManager::getInstance()->offsetGet('channel:' . $this->m_announcementChannel);
         if ($bot)
-            $bot->send('PRIVMSG ' . self::UPDATE_ANNOUNCEMENT_CHANNEL . ' :' . $message);
+            $bot->send('PRIVMSG ' . $this->m_announcementChannel . ' :' . $message);
 
         $this->m_availableVersion = $availableVersion;
     }
