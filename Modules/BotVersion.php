@@ -48,7 +48,7 @@ class BotVersion extends Nuwani\ModuleBase {
 
     // Called when there are no further references to this class. Stops the update check timer.
     public function __destruct() {
-        Timer::Stop($this->m_updateTimer);
+        Nuwani\Timer::Stop($this->m_updateTimer);
     }
 
     // Starts the GitHub daemon by listening to incoming requests on port |$port| for all IP

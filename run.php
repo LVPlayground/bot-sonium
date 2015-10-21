@@ -34,7 +34,6 @@ if ($_SERVER ['argc'] >= 2 && $_SERVER ['argv'][1] == 'restart')
 Nuwani \ Configuration	:: getInstance () -> register   ($aConfiguration);
 Nuwani \ NetworkManager	:: getInstance () -> Initialise ($aConfiguration ['Networks']);
 Nuwani \ BotManager	:: getInstance () -> Initialise ($aConfiguration ['Bots']);
-Nuwani \ Memory		:: Initialise  ();
 
 $g_bRun = true ;
 while ($g_bRun)
@@ -44,7 +43,6 @@ while ($g_bRun)
 		Nuwani \ BotManager	:: getInstance () -> process ();
 		Nuwani \ ModuleManager	:: getInstance () -> onTick ();
 		Nuwani \ Timer 	   	:: process ();
-		Nuwani \ Memory	   	:: process ();
 		
 		if (count (Nuwani \ BotManager :: getInstance ()) == 0)
 		{
