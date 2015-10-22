@@ -404,7 +404,7 @@ class Command implements Serializable, ArrayAccess
 			$this -> m_aStatistics ['Executed'] ++;
 			$this -> m_aStatistics ['LastTime'] = time();
 			
-			ErrorExceptionHandler :: $Source = $sDestination ;
+			Nuwani\ErrorExceptionHandler :: $Source = $sDestination ;
 			
 			ob_start ();
 			
